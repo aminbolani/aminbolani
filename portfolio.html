@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Amin Bolani</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+:root {
+  --brown-dark: #1a0f0a;
+  --brown-medium: #2c1810;
+  --brown-card: #24140d;
+  --brown-gold: #d97706;
+  --brown-cream: #fef3c7;
+  --brown-light-bg: #fffbeb;
+  --text-muted: #d1bcad;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix: Mobile page horizontal shaking/scrolling bug */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--brown-light-bg);
+  color: #3b2314;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Top Sticky Navigation Bar */
+.portfolio-header {
+  background: var(--brown-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--brown-medium);
+  padding: 12px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.header-top-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.portfolio-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.portfolio-logo span {
+  color: var(--brown-gold);
+}
+
+.category-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 5px 0;
+  scrollbar-width: none;
+}
+
+.category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-btn {
+  color: #e0d0c1;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 30px;
+  background: var(--brown-medium);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.cat-btn i {
+  color: var(--brown-gold);
+  font-size: 0.9rem;
+}
+
+.cat-btn:hover, .cat-btn.active {
+  background: var(--brown-gold);
+  color: #ffffff;
+  border-color: var(--brown-gold);
+}
+
+.cat-btn:hover i, .cat-btn.active i {
+  color: #ffffff;
+}
+
+.home-back-link {
+  color: var(--brown-cream);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.home-back-link:hover {
+  color: var(--brown-gold);
+}
+
+/* Hero Banner Section */
+.portfolio-hero-banner {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  background: linear-gradient(135deg, #1a0f0a 0%, #2c1810 60%, #432315 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 4px solid var(--brown-gold);
+}
+
+.banner-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.banner-text-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.banner-text-overlay h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.banner-text-overlay h1 span {
+  color: var(--brown-gold);
+}
+
+.banner-text-overlay p {
+  color: var(--brown-cream);
+  font-size: 1rem;
+}
+
+/* Main Section Style */
+.portfolio-container {
+  padding: 50px 4%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.portfolio-section-block {
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.section-header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid var(--brown-gold);
+  padding-left: 12px;
+}
+
+.section-header-title i {
+  color: var(--brown-gold);
+}
+
+/* Horizontal Scroll Row - Smooth Card Scrolling */
+.horizontal-scroll-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brown-gold) var(--brown-medium);
+}
+
+.horizontal-scroll-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.horizontal-scroll-row::-webkit-scrollbar-thumb {
+  background: var(--brown-gold);
+  border-radius: 10px;
+}
+
+.horizontal-scroll-row::-webkit-scrollbar-track {
+  background: #e8d5c4;
+  border-radius: 10px;
+}
+
+/* Portfolio Card Item */
+.portfolio-card {
+  min-width: 260px;
+  max-width: 260px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #f3e8d8;
+  box-shadow: 0 8px 20px rgba(26, 15, 10, 0.05);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--brown-gold);
+  box-shadow: 0 12px 25px rgba(217, 119, 6, 0.2);
+}
+
+.card-img-square {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--brown-medium);
+  position: relative;
+}
+
+.card-img-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .card-img-square img {
+  transform: scale(1.06);
+}
+
+.card-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--brown-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-link-text {
+  font-size: 0.82rem;
+  color: #6b4328;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.portfolio-card:hover .card-link-text {
+  color: var(--brown-gold);
+}
+
+/* Footer Section */
+.portfolio-footer-section {
+  background: var(--brown-dark);
+  color: #ffffff;
+  padding: 50px 4% 30px;
+  border-top: 2px solid var(--brown-medium);
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.footer-title span {
+  color: var(--brown-gold);
+}
+
+.footer-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.social-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  width: 48px;
+  height: 48px;
+  background: var(--brown-card);
+  border: 1px solid var(--brown-medium);
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: var(--brown-gold);
+  color: #ffffff;
+  transform: translateY(-4px);
+}
+
+.contact-details-row {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.contact-pill {
+  background: var(--brown-card);
+  border: 1px solid var(--brown-medium);
+  padding: 12px 22px;
+  border-radius: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-pill i {
+  color: var(--brown-gold);
+}
+
+.contact-pill:hover {
+  border-color: var(--brown-gold);
+  transform: translateY(-2px);
+}
+
+.footer-bottom-copy {
+  border-top: 1px solid var(--brown-medium);
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 4%;
+  }
+
+  .header-top-line {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .category-nav {
+    width: 100%;
+  }
+
+  .cat-btn {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+  }
+
+  .portfolio-hero-banner {
+    height: 200px;
+  }
+
+  .banner-text-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .portfolio-card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="portfolio-header">
+  <div class="header-top-line">
+    <a href="index.html" class="portfolio-logo">AMIN <span>BOLANI</span></a>
+    <a href="index.html" class="home-back-link"><i class="fas fa-arrow-left"></i> Home</a>
+  </div>
+
+  <nav class="category-nav">
+    <a href="#figma-section" class="cat-btn active"><i class="fab fa-figma"></i> Figma UI</a>
+    <a href="#business-section" class="cat-btn"><i class="fas fa-briefcase"></i> Business Web</a>
+    <a href="#ecommerce-section" class="cat-btn"><i class="fas fa-shopping-cart"></i> E-Commerce</a>
+    <a href="#graphics-section" class="cat-btn"><i class="fas fa-paint-brush"></i> Graphics</a>
+  </nav>
+</header>
+
+<!-- Hero Banner -->
+<section class="portfolio-hero-banner">
+  <img src="images/portfolio-banner.jpg" alt="Portfolio Banner" class="banner-bg-img" onerror="this.style.display='none'">
+  <div class="banner-text-overlay">
+    <h1>My Creative <span>Portfolio</span></h1>
+    <p>Explore recent projects, custom websites, and creative designs.</p>
+  </div>
+</section>
+
+<!-- Main Container -->
+<main class="portfolio-container">
+
+  <!-- SECTION 1: Figma UI -->
+  <section id="figma-section" class="portfolio-section-block">
+    <h2 class="section-header-title"><i class="fab fa-figma"></i> Figma UI/UX Design</h2>
+    <div class="horizontal-scroll-row" id="figma-row">
+      <p style="color:#888;">Loading Figma items...</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Business Websites -->
+  <section id="business-section" class="portfolio-section-block">
+    <h2 class="section-header-title"><i class="fas fa-briefcase"></i> Business Websites</h2>
+    <div class="horizontal-scroll-row" id="business-row">
+      <p style="color:#888;">Loading Business items...</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: E-Commerce Websites -->
+  <section id="ecommerce-section" class="portfolio-section-block">
+    <h2 class="section-header-title"><i class="fas fa-shopping-cart"></i> E-Commerce Websites</h2>
+    <div class="horizontal-scroll-row" id="ecommerce-row">
+      <p style="color:#888;">Loading E-Commerce items...</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Graphic Design -->
+  <section id="graphics-section" class="portfolio-section-block">
+    <h2 class="section-header-title"><i class="fas fa-paint-brush"></i> Graphic Design</h2>
+    <div class="horizontal-scroll-row" id="graphics-row">
+      <p style="color:#888;">Loading Graphics items...</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="portfolio-footer-section">
+  <div class="footer-content">
+    <h3 class="footer-title">Let's Build Something <span>Great</span></h3>
+    <p class="footer-subtitle">Have a project in mind or want to collaborate? Get in touch!</p>
+
+    <div class="social-icons-row">
+      <a href="https://tiktok.com/@aminbolani" target="_blank" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://youtube.com/@aminbolanioffical" target="_blank" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://instagram.com/aminbolani_" target="_blank" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="contact-details-row">
+      <a href="https://wa.me/923252704588" target="_blank" class="contact-pill">
+        <i class="fab fa-whatsapp"></i> 03252704588
+      </a>
+      <a href="mailto:aminbolanioffical@gmail.com" class="contact-pill">
+        <i class="fas fa-envelope"></i> aminbolanioffical@gmail.com
+      </a>
+    </div>
+
+    <div class="footer-bottom-copy">
+      <p>&copy; 2026 <strong>Amin Bolani</strong>. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const API_BASE_URL = "http://localhost:5000/api/portfolio";
+
+  async function fetchAndRenderPortfolio() {
+    try {
+      const res = await fetch(API_BASE_URL);
+      const result = await res.json();
+
+      if (result.success && result.data.length > 0) {
+        const containers = {
+          figma: document.getElementById("figma-row"),
+          business: document.getElementById("business-row"),
+          ecommerce: document.getElementById("ecommerce-row"),
+          graphics: document.getElementById("graphics-row")
+        };
+
+        const grouped = { figma: [], business: [], ecommerce: [], graphics: [] };
+
+        result.data.forEach(item => {
+          if (grouped[item.category]) {
+            grouped[item.category].push(item);
+          }
+        });
+
+        Object.keys(grouped).forEach(cat => {
+          if (containers[cat]) {
+            if (grouped[cat].length > 0) {
+              containers[cat].innerHTML = grouped[cat].map(item => `
+                <a href="${item.link}" target="_blank" class="portfolio-card">
+                  <div class="card-img-square">
+                    <img src="${item.imageUrl}" alt="${item.title}">
+                  </div>
+                  <div class="card-info">
+                    <span class="card-tag">${item.category}</span>
+                    <h3 class="card-title">${item.title}</h3>
+                    <span class="card-link-text">View Project <i class="fas fa-external-link-alt"></i></span>
+                  </div>
+                </a>
+              `).join('');
+            } else {
+              containers[cat].innerHTML = `<p style="color:#999; font-size:0.9rem;">No projects added in this category yet.</p>`;
+            }
+          }
+        });
+      }
+    } catch (err) {
+      console.log("Error fetching backend items:", err);
+    }
+  }
+
+  window.onload = fetchAndRenderPortfolio;
+</script>
+
+</body>
+</html>

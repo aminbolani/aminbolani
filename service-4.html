@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Detail — Amin Bolani</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main CSS Files -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Brown Chocolate Theme Specific Styles -->
+  <style>
+    :root {
+      --brown-dark: #1a0f0a;
+      --brown-medium: #2c1810;
+      --brown-gold: #d97706;
+      --brown-cream: #fef3c7;
+      --brown-light-bg: #fffbeb;
+    }
+
+    body {
+      background-color: var(--brown-light-bg);
+      color: #3b2314;
+    }
+
+    /* Top Hero Banner */
+    .service-top-banner {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #1a0f0a 0%, #2c1810 50%, #432315 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid var(--brown-gold);
+    }
+
+    .banner-overlay-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(217, 119, 6, 0.25), transparent 40%),
+                  radial-gradient(circle at 80% 50%, rgba(67, 35, 21, 0.4), transparent 40%);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brown-cream);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+      transform: translateX(-5px);
+      color: #ffffff;
+    }
+
+    .banner-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .banner-title span {
+      color: var(--brown-gold);
+    }
+
+    /* Main Body Layout */
+    .service-body-section {
+      padding: 60px 5%;
+    }
+
+    .service-grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+    }
+
+    /* Cards */
+    .detail-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 35px;
+      border: 2px solid #f3e8d8;
+      box-shadow: 0 12px 35px rgba(44, 24, 16, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .detail-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .detail-card h3 i {
+      color: var(--brown-gold);
+    }
+
+    /* Process Timeline Steps */
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 18px;
+      background: #fdf8f0;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid var(--brown-gold);
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: var(--brown-gold);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .step-text h4 {
+      font-size: 1.1rem;
+      color: var(--brown-dark);
+      margin-bottom: 6px;
+    }
+
+    .step-text p {
+      font-size: 0.92rem;
+      color: #5a3d28;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Deliverables List */
+    .deliverables-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .deliverables-list li {
+      padding: 12px 0;
+      border-bottom: 1px dashed #e8d5c4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #4a2e1b;
+    }
+
+    .deliverables-list li i {
+      color: var(--brown-gold);
+      font-size: 1.1rem;
+    }
+
+    /* Order Form Sidebar */
+    .form-sidebar {
+      background: var(--brown-dark);
+      color: #ffffff;
+      padding: 35px;
+      border-radius: 20px;
+      position: sticky;
+      top: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      border: 2px solid var(--brown-gold);
+    }
+
+    .form-sidebar h4 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .form-sidebar p {
+      font-size: 0.88rem;
+      color: #d1bcad;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #f3e8d8;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #432315;
+      background: #2c1810;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--brown-gold);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .submit-wa-btn {
+      width: 100%;
+      background: #25D366;
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .submit-wa-btn:hover {
+      background: #1eb854;
+      transform: translateY(-2px);
+    }
+
+    @media screen and (max-width: 992px) {
+      .service-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .form-sidebar {
+        position: relative;
+        top: 0;
+      }
+      .banner-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Hero Banner -->
+  <header class="service-top-banner">
+    <div class="banner-overlay-pattern"></div>
+    <div class="banner-content">
+      <a href="index.html#services" class="back-home-btn"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+      <h1 class="banner-title"><i class="fas fa-rocket"></i> Custom Web <span> Solutions</span></h1>
+    </div>
+  </header>
+
+  <!-- Service Main Content -->
+  <section class="service-body-section">
+    <div class="container">
+      <div class="service-grid-2">
+        
+        <!-- Left Side Details -->
+        <div class="detail-left">
+          
+          <!-- Box 1: Development Workflow -->
+          <div class="detail-card">
+            <h3><i class="fas fa-cogs"></i> Development Workflow</h3>
+            <div class="process-timeline">
+              
+              <div class="process-step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                  <h4>Requirement Analysis</h4>
+                  <p>Understanding your project goals, business model, and custom features needed for your application.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                  <h4>UI/UX & Interactive Design</h4>
+                  <p>Crafting custom animations, smooth transitions, and high-converting visual layouts tailored to your brand.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                  <h4>Full-Stack Integration</h4>
+                  <p>Building clean, scalable front-end and back-end logic for reliable overall performance.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-num">4</div>
+                <div class="step-text">
+                  <h4>Deployment & Support</h4>
+                  <p>Testing across all devices, launching on your server, and providing complete maintenance support.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Box 2: Deliverables -->
+          <div class="detail-card">
+            <h3><i class="fas fa-layer-group"></i> Key Features Included</h3>
+            <ul class="deliverables-list">
+              <li><i class="fas fa-check-circle"></i> Custom Responsive Web Architecture</li>
+              <li><i class="fas fa-check-circle"></i> Interactive Animations & UI Effects</li>
+              <li><i class="fas fa-check-circle"></i> Fast Loading Speed & SEO Optimization</li>
+              <li><i class="fas fa-check-circle"></i> Cross-Browser Compatibility & Security</li>
+              <li><i class="fas fa-check-circle"></i> Dedicated Technical Support & Bug Fixing</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Right Side Order Form -->
+        <div class="detail-right">
+          <div class="form-sidebar">
+            <h4><i class="fab fa-whatsapp" style="color: #25D366;"></i> Request Project Quote</h4>
+            <p>Send your custom requirements directly to WhatsApp for instant response!</p>
+            
+            <form id="card4OrderForm">
+              
+              <div class="form-group">
+                <label for="clientName">Your Name</label>
+                <input type="text" id="clientName" class="form-control" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="projectType">Project Scale</label>
+                <select id="projectType" class="form-control" required>
+                  <option value="" disabled selected>Select project scale...</option>
+                  <option value="Single Page Web App">Single Page Application</option>
+                  <option value="Multi-Page Business Site">Multi-Page Corporate Site</option>
+                  <option value="Custom E-Commerce Solution">Custom E-Commerce Web App</option>
+                  <option value="Full Web Application Build">Full-Stack Custom Project</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="clientMessage">Project Details / Ideas</label>
+                <textarea id="clientMessage" class="form-control" placeholder="Describe your web solution needs or share references..." required></textarea>
+              </div>
+
+              <button type="submit" class="submit-wa-btn">
+                <i class="fab fa-whatsapp"></i> Send To WhatsApp
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="background: var(--brown-dark); padding: 25px 0; color: #fff; border-top: 1px solid var(--brown-medium);">
+    <div class="container" style="text-align: center; font-size: 0.9rem;">
+      <p style="margin: 0;">&copy; 2026 <strong>Amin Bolani</strong>. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Redirect Script -->
+  <script>
+    document.getElementById('card4OrderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('clientName').value.trim();
+      const projectType = document.getElementById('projectType').value;
+      const message = document.getElementById('clientMessage').value.trim();
+      
+      const phoneNumber = "923252704588"; 
+      
+      const waMessage = `Hi Amin! Mera name *${name}* hai.%0A%0A*Service:* Custom Web Solution%0A*Project Scale:* ${projectType}%0A*Details:* ${message}`;
+      
+      const waURL = `https://wa.me/${phoneNumber}?text=${waMessage}`;
+      window.open(waURL, '_blank');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Portfolio Control</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+ <style>
+  :root {
+    --brown-dark: #1a0f0a;
+    --brown-medium: #2c1810;
+    --brown-card: #24140d;
+    --brown-gold: #d97706;
+    --brown-cream: #fef3c7;
+    --brown-light-bg: #fffbeb;
+    --text-muted: #d1bcad;
+  }
+
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+  /* Fix: Prevent horizontal overflow on mobile screens */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--brown-light-bg);
+    color: var(--brown-dark);
+    min-height: 100vh;
+  }
+
+
+  /* Top Admin Header */
+  .admin-navbar {
+    background: var(--brown-dark);
+    color: #ffffff;
+    padding: 15px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--brown-medium);
+  }
+
+
+  .admin-logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+
+  .admin-logo span {
+    color: var(--brown-gold);
+  }
+
+
+  .logout-btn {
+    background: #dc2626;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+
+  /* Main Grid Layout */
+  .dashboard-container {
+    padding: 30px 4%;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* Left Side Upload Form */
+  .form-panel {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid #f3e8d8;
+    box-shadow: 0 10px 30px rgba(26, 15, 10, 0.05);
+    height: fit-content;
+    width: 100%;
+  }
+
+
+  .panel-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--brown-dark);
+    border-bottom: 2px solid var(--brown-gold);
+    padding-bottom: 8px;
+  }
+
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--brown-dark);
+  }
+
+
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1bcad;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+  }
+
+
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--brown-gold);
+  }
+
+
+  /* File Box & Preview Styling */
+  .file-input-box {
+    border: 2px dashed var(--brown-gold);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: var(--brown-light-bg);
+    cursor: pointer;
+    position: relative;
+  }
+
+
+  .file-input-box i.upload-icon {
+    font-size: 2rem;
+    color: var(--brown-gold);
+    margin-bottom: 8px;
+  }
+
+
+  .image-preview-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+
+  .image-preview-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--brown-gold);
+  }
+
+
+  .remove-img-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+
+  .upload-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--brown-gold);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+
+  .upload-btn:hover {
+    background: #b45309;
+  }
+
+
+  /* Right Side Table Panel */
+  .table-panel {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid #f3e8d8;
+    box-shadow: 0 10px 30px rgba(26, 15, 10, 0.05);
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+  /* Category Filter Tabs */
+  .filter-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  .tab-btn {
+    padding: 8px 16px;
+    background: var(--brown-light-bg);
+    border: 1px solid #e2d1c3;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+
+
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--brown-dark);
+    color: #ffffff;
+    border-color: var(--brown-dark);
+  }
+
+
+  /* Table Styling */
+  .data-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 500px; /* Ensures table stays readable on horizontal scroll */
+  }
+
+
+  th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0e4d7;
+    font-size: 0.9rem;
+  }
+
+
+  th {
+    background: var(--brown-dark);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+
+  .table-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--brown-gold);
+  }
+
+
+  .action-btn {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #ffffff;
+  }
+
+
+  .btn-edit { background: #d97706; }
+  .btn-delete { background: #dc2626; margin-left: 5px; }
+
+
+  /* Responsive Adjustments for Tablet and Mobile */
+  @media screen and (max-width: 992px) {
+    .dashboard-container {
+      grid-template-columns: 1fr;
+      padding: 20px 3%;
+      gap: 20px;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .admin-navbar {
+      padding: 12px 15px;
+    }
+
+
+    .admin-logo {
+      font-size: 1.1rem;
+    }
+
+
+    .logout-btn {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+
+
+    .form-panel, .table-panel {
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+
+    .panel-title {
+      font-size: 1.1rem;
+    }
+
+
+    th, td {
+      padding: 10px;
+      font-size: 0.82rem;
+    }
+  }
+
+
+  @media screen and (max-width: 480px) {
+    .dashboard-container {
+      padding: 15px 10px;
+    }
+   
+    .file-input-box {
+      padding: 15px 10px;
+    }
+  }
+</style>
+</head>
+<body>
+
+
+  <!-- Top Navbar -->
+  <header class="admin-navbar">
+    <div class="admin-logo">AMIN <span>BOLANI</span> (Admin Panel)</div>
+    <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+  </header>
+
+
+  <!-- Dashboard Main Grid -->
+  <div class="dashboard-container">
+
+
+    <!-- Left Form Panel -->
+    <div class="form-panel">
+      <h3 class="panel-title" id="formTitle">Add New Portfolio Item</h3>
+      <form id="portfolioForm">
+        <input type="hidden" id="editItemId">
+
+
+        <div class="form-group">
+          <label>Select Card Image (1:1 Square)</label>
+          <div class="file-input-box" id="dropArea" onclick="triggerFileInput(event)">
+            <i class="fas fa-cloud-upload-alt upload-icon" id="uploadIcon"></i>
+            <p id="fileLabel" style="font-size: 0.8rem; color: #6b4328;">Click to upload from system</p>
+           
+            <!-- Image Live Preview Container -->
+            <div id="previewContainer" class="image-preview-container" style="display: none;">
+              <img id="imgPreview" src="" alt="Preview">
+              <button type="button" class="remove-img-btn" onclick="removeImage(event)"><i class="fas fa-times"></i></button>
+            </div>
+
+
+            <input type="file" id="cardImage" accept="image/*" style="display: none;" onchange="handleImageSelect(this)">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label>Card Name / Title</label>
+          <input type="text" id="cardTitle" placeholder="e.g. Royal Barber App UI" required>
+        </div>
+
+
+        <div class="form-group">
+          <label>Project Redirect Link</label>
+          <input type="url" id="cardLink" placeholder="https://..." required>
+        </div>
+
+
+        <div class="form-group">
+          <label>Category</label>
+         <select id="cardCategory" onchange="toggleInputsByCategory()">
+  <option value="figma">Figma UI/UX Design</option>
+  <option value="business">Business Website</option>
+  <option value="ecommerce">E-Commerce Website</option>
+  <option value="graphics">Graphic Design</option>
+  <!-- NAYA ADD KIYA GAYA OPTION -->
+  <option value="gallery">Visual Gallery Showcase (Section 6)</option>
+</select>
+        </div>
+
+
+        <button type="submit" class="upload-btn" id="submitBtn">Upload to Portfolio</button>
+      </form>
+    </div>
+
+
+    <!-- Right Table Panel -->
+    <div class="table-panel">
+      <h3 class="panel-title">Portfolio Items List</h3>
+
+
+      <!-- Category Tabs -->
+      <div class="filter-tabs">
+  <button class="tab-btn active" onclick="filterTable('all', this)">All</button>
+  <button class="tab-btn" onclick="filterTable('figma', this)">Figma UI</button>
+  <button class="tab-btn" onclick="filterTable('business', this)">Business Web</button>
+  <button class="tab-btn" onclick="filterTable('ecommerce', this)">E-Commerce</button>
+  <button class="tab-btn" onclick="filterTable('graphics', this)">Graphic Design</button>
+  <!-- NAYA TAB BUTTON -->
+  <button class="tab-btn" onclick="filterTable('gallery', this)">Gallery Carousel</button>
+</div>
+
+
+      <!-- Table -->
+      <div class="data-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="portfolioTableBody">
+            <!-- Dynamic Items Rows Will Render Here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+
+
+<script>
+  // 1. Direct Route Security Check
+  if (localStorage.getItem("adminAuth") !== "true") {
+    alert("Please login first!");
+    window.location.href = "awm-login.html";
+  }
+
+  const API_BASE_URL = "http://localhost:5000/api/portfolio";
+
+  let currentCategoryFilter = "all";
+  let editingItemId = null;
+
+  // Logout Function
+  function logout() {
+    localStorage.removeItem("adminAuth");
+    window.location.href = "awm-login.html";
+  }
+
+  // Trigger file click only if clicking outside preview button
+  function triggerFileInput(e) {
+    if (e.target.closest('.remove-img-btn')) return;
+    document.getElementById('cardImage').click();
+  }
+
+  // Image Selection Preview Handler
+  function handleImageSelect(input) {
+    const file = input.files[0];
+    const label = document.getElementById("fileLabel");
+    const previewContainer = document.getElementById("previewContainer");
+    const imgPreview = document.getElementById("imgPreview");
+    const uploadIcon = document.getElementById("uploadIcon");
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        imgPreview.src = e.target.result;
+        previewContainer.style.display = "inline-block";
+        uploadIcon.style.display = "none";
+        label.innerText = file.name;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // Remove Selected Image
+  function removeImage(e) {
+    e.stopPropagation();
+    const input = document.getElementById("cardImage");
+    const label = document.getElementById("fileLabel");
+    const previewContainer = document.getElementById("previewContainer");
+    const uploadIcon = document.getElementById("uploadIcon");
+
+    input.value = ""; // Clear file input
+    previewContainer.style.display = "none";
+    uploadIcon.style.display = "inline-block";
+    label.innerText = "Click to upload from system";
+  }
+
+  // Dynamic inputs toggle logic based on category selection
+  function toggleInputsByCategory() {
+    const category = document.getElementById("cardCategory").value;
+    const titleInput = document.getElementById("cardTitle");
+    const linkInput = document.getElementById("cardLink");
+
+    if (category === "gallery") {
+      titleInput.value = "";
+      linkInput.value = "";
+      titleInput.disabled = true;
+      linkInput.disabled = true;
+      titleInput.placeholder = "Not required for Visual Gallery";
+      linkInput.placeholder = "Not required for Visual Gallery";
+    } else {
+      titleInput.disabled = false;
+      linkInput.disabled = false;
+      titleInput.placeholder = "e.g. Royal Barber App UI";
+      linkInput.placeholder = "https://...";
+    }
+  }
+
+  // 2. Fetch & Render Table Data
+  async function loadPortfolioItems() {
+    const tableBody = document.getElementById("portfolioTableBody");
+    tableBody.innerHTML = `<tr><td colspan="4" style="text-align:center;">Loading items...</td></tr>`;
+
+    try {
+      const url = currentCategoryFilter === "all"
+        ? API_BASE_URL
+        : `${API_BASE_URL}?category=${currentCategoryFilter}`;
+
+      const res = await fetch(url);
+      const result = await res.json();
+
+      if (result.success && result.data.length > 0) {
+        tableBody.innerHTML = "";
+        result.data.forEach(item => {
+          tableBody.innerHTML += `
+            <tr>
+              <td><img src="${item.imageUrl}" class="table-img" alt="Card Image"></td>
+              <td><strong>${item.title}</strong><br><a href="${item.link}" target="_blank" style="font-size:0.75rem; color:#d97706;">View Link</a></td>
+              <td><span style="text-transform:uppercase; font-size:0.8rem; font-weight:600;">${item.category}</span></td>
+              <td>
+                <button class="action-btn btn-edit" onclick="editItem('${item._id}', '${item.title}', '${item.link}', '${item.category}')"><i class="fas fa-edit"></i></button>
+                <button class="action-btn btn-delete" onclick="deleteItem('${item._id}')"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          `;
+        });
+      } else {
+        tableBody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No items found in this category.</td></tr>`;
+      }
+    } catch (err) {
+      tableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:red;">Failed to connect to backend server. Make sure 'node server.js' is running.</td></tr>`;
+    }
+  }
+
+  // 3. Filter Table Tabs
+  function filterTable(category, btn) {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentCategoryFilter = category;
+    loadPortfolioItems();
+  }
+
+  // 4. Form Submit (Upload & Edit Logic)
+  document.getElementById("portfolioForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const category = document.getElementById("cardCategory").value;
+    let title = document.getElementById("cardTitle").value.trim();
+    let link = document.getElementById("cardLink").value.trim();
+    const imageFile = document.getElementById("cardImage").files[0];
+
+    // Manual Validation: Gallery category na hone par title aur link zaroori hain
+    if (category !== "gallery") {
+      if (!title || !link) {
+        alert("Please fill in Card Name and Project Link!");
+        return;
+      }
+    } else {
+      // Gallery ke liye fallback text agar empty ho
+      if (!title) title = "Gallery Image";
+      if (!link) link = "#";
+    }
+
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.innerText = "Processing...";
+    submitBtn.disabled = true;
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("link", link);
+    formData.append("category", category);
+    if (imageFile) {
+      formData.append("image", imageFile);
+    }
+
+    try {
+      let response;
+      if (editingItemId) {
+        response = await fetch(`${API_BASE_URL}/${editingItemId}`, {
+          method: "PUT",
+          body: formData
+        });
+      } else {
+        if (!imageFile) {
+          alert("Please select an image first!");
+          submitBtn.innerText = "Upload to Portfolio";
+          submitBtn.disabled = false;
+          return;
+        }
+        response = await fetch(API_BASE_URL, {
+          method: "POST",
+          body: formData
+        });
+      }
+
+      const resData = await response.json();
+
+      if (response.ok && resData.success) {
+        alert(editingItemId ? "Item updated successfully!" : "Item uploaded successfully!");
+        resetForm();
+        loadPortfolioItems();
+      } else {
+        alert("Server Error: " + (resData.message || "Something went wrong!"));
+      }
+    } catch (error) {
+      alert("Network Error: Could not connect to Node.js backend!");
+    } finally {
+      submitBtn.disabled = false;
+      if (!editingItemId) submitBtn.innerText = "Upload to Portfolio";
+    }
+  });
+
+  // 5. Edit Item Setup
+  function editItem(id, title, link, category) {
+    editingItemId = id;
+    document.getElementById("formTitle").innerText = "Edit Portfolio Item";
+    document.getElementById("cardTitle").value = title;
+    document.getElementById("cardLink").value = link;
+    document.getElementById("cardCategory").value = category;
+    toggleInputsByCategory(); // Ensure inputs state matches category
+    document.getElementById("submitBtn").innerText = "Update Item";
+    document.getElementById("fileLabel").innerText = "Optionally select a new image";
+  }
+
+  // Reset Form
+  function resetForm() {
+    editingItemId = null;
+    document.getElementById("portfolioForm").reset();
+    removeImage(new Event('click')); // Reset image preview
+    toggleInputsByCategory(); // Reset inputs state
+    document.getElementById("formTitle").innerText = "Add New Portfolio Item";
+    document.getElementById("submitBtn").innerText = "Upload to Portfolio";
+  }
+
+  // 6. Delete Item Logic
+  async function deleteItem(id) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/${id}`, { method: "DELETE" });
+        const data = await res.json();
+        if (data.success) {
+          loadPortfolioItems();
+        } else {
+          alert("Could not delete item!");
+        }
+      } catch (err) {
+        alert("Error deleting item!");
+      }
+    }
+  }
+
+  // Initial Load On Page Ready
+  window.onload = () => {
+    loadPortfolioItems();
+    toggleInputsByCategory();
+  };
+</script>
+</body>
+</html>
+

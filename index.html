@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amin Bolani — Portfolio & Freelancing Services</title>
+
+  <!-- Google Fonts (Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons (WhatsApp & Three-Dots ke liye) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS Files -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- GSAP & ScrollTrigger Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <!-- Custom JS Files -->
+  <script src="js/script.js" defer></script>
+  <script src="js/animation.js" defer></script>
+</head>
+<body>
+
+  <!-- ================================
+       SECTION 01 — NAVBAR
+  ================================= -->
+  <header class="header">
+    <nav class="navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <span class="logo-dark">Amin</span><span class="logo-light">Bolani</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="#services"class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="#footer" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <!-- Header Actions (WhatsApp Button + Mobile Toggle) -->
+      <div class="header-actions">
+        <!-- WhatsApp Direct Chat Link -->
+        <a href="https://wa.me/923252704588?text=Hi%20Amin,%20I%20visited%20your%20website%20and%20would%20like%20to%20discuss%20a%20project!" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i>
+          <span class="btn-text">WhatsApp</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button (Three Dots Icon) -->
+        <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu Popup -->
+      <div class="mobile-dropdown">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+          <li><a href="#services" class="mobile-nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="mobile-nav-link">Portfolio</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="#footer" class="mobile-nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ================================
+       FUTURE SECTIONS WILL BE ADDED HERE
+       (Hero, Services, Portfolio, etc.)
+  ================================= -->
+
+  <!-- ================================
+       SECTION 02 — HERO BANNER SLIDER
+  ================================= -->
+  <section class="hero-section">
+    <div class="hero-slider">
+      
+      <!-- Slide 01: Figma Web Designing -->
+      <div class="slide active">
+        <img src="images/banner-1.jpg" alt="Figma Web Designing Service" class="banner-img">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <a href="services.html" class="slide-btn">
+              Explore Service <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 02: Business Web Development -->
+      <div class="slide">
+        <img src="images/banner-2.jpg" alt="Business Web Development Service" class="banner-img">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <a href="services.html" class="slide-btn">
+              Explore Service <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 03: WhatsApp E-Commerce -->
+      <div class="slide">
+        <img src="images/banner-3.jpg" alt="WhatsApp E-Commerce Website Service" class="banner-img">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <a href="https://wa.me/923252704588?text=Hi%20Amin,%20I%20want%20to%20build%20a%20WhatsApp%20Ecommerce%20Website!" target="_blank" rel="noopener noreferrer" class="slide-btn">
+              Order Store <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 04: Digital Catalog & Assets -->
+      <div class="slide">
+        <img src="images/banner-4.jpg" alt="Digital Catalog & Assets Design" class="banner-img">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <a href="services.html" class="slide-btn">
+              Get Assets <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slider Navigation Dots (Optional Indicator) -->
+    <div class="slider-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
+  </section>
+
+  <!--section  3 start--/>
+  <!- ================================
+       SECTION 03 — ALL SERVICES
+  ================================= -->
+  <section class="services-section" id="services">
+    <div class="container">
+      
+      <!-- Section Title -->
+      <div class="section-header">
+        <h2 class="section-title">My Premium Services</h2>
+        <p class="section-subtitle">High-quality digital solutions tailored for your business growth</p>
+      </div>
+
+      <!-- Services Cards Container / Track -->
+      <div class="services-grid">
+        
+        <!-- Card 01: Figma UI/UX Design -->
+        <a href="service-1.html" class="service-card">
+          <div class="card-img-box">
+            <img src="images/service-1.jpg" alt="Figma UI/UX Web Designing" class="service-img">
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Figma UI/UX Web Designing</h3>
+            <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Card 02: Business Web Development -->
+        <a href="service-2.html" class="service-card">
+          <div class="card-img-box">
+            <img src="images/service-2.jpg" alt="Business Web Development" class="service-img">
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Business Web Development</h3>
+            <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Card 03: WhatsApp E-Commerce Store -->
+        <a href="service-3.html" class="service-card">
+          <div class="card-img-box">
+            <img src="images/service-3.jpg" alt="WhatsApp E-Commerce Store" class="service-img">
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">WhatsApp E-Commerce Website</h3>
+            <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Card 04: Website Graphics & Assets Design -->
+        <a href="service-4.html" class="service-card">
+          <div class="card-img-box">
+            <img src="images/service-4.jpg" alt="Digital Catalog & Website Assets" class="service-img">
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Website Assets & Graphic Design</h3>
+            <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================
+       SECTION 04 — SERVICES PORTFOLIO
+  ================================= -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Featured Work & Projects</h2>
+        <p class="section-subtitle">Explore my recent design and web development work</p>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid">
+        
+        <!-- Portfolio Card 01: Figma UI/UX -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-box">
+            <img src="images/portfolio-1.jpg" alt="Figma UI UX Project Showcase" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Figma UI/UX</span>
+              <h3 class="portfolio-card-title">Modern SaaS Web Design</h3>
+              <a href="portfolio.html#figma-project" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                View Project <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Card 02: Business Web Dev -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-box">
+            <img src="images/portfolio-2.jpg" alt="Business Website Project Showcase" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Web Development</span>
+              <h3 class="portfolio-card-title">Corporate Business Website</h3>
+              <a href="portfolio.html#business-project" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                View Project <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Card 03: WhatsApp E-Commerce -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-box">
+            <img src="images/portfolio-3.jpg" alt="WhatsApp E-Commerce Project Showcase" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">WhatsApp Store</span>
+              <h3 class="portfolio-card-title">E-Commerce Product Website</h3>
+              <a href="portfolio.html#ecommerce-project" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                View Project <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Card 04: Graphic & Assets -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-box">
+            <img src="images/portfolio-4.jpg" alt="Brand Assets Graphic Design Showcase" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Graphic Design</span>
+              <h3 class="portfolio-card-title">Brand Identity & Assets Kit</h3>
+              <a href="portfolio.html#graphic-project" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                View Project <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+ <!-- ================================
+       SECTION 05 — SOCIAL MEDIA ACCOUNTS (AUTO-SCROLL)
+  ================================= -->
+  <section class="social-section" id="socials">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Connect With Me</h2>
+        <p class="section-subtitle">Follow my work, updates, and design tutorials across all platforms</p>
+      </div>
+
+      <!-- Infinite Auto-Scroll Wrapper -->
+      <div class="social-carousel-wrapper">
+        <div class="social-track">
+          
+          <!-- Original 8 Cards -->
+          <a href="https://youtube.com/@aminbolanioffical" target="_blank" rel="noopener noreferrer" class="social-card youtube">
+            <div class="social-icon-box"><i class="fab fa-youtube"></i></div>
+            <div class="social-info">
+              <h3>YouTube</h3>
+              <p>Subscribe Channel</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://instagram.com/aminbolani_" target="_blank" rel="noopener noreferrer" class="social-card instagram">
+            <div class="social-icon-box"><i class="fab fa-instagram"></i></div>
+            <div class="social-info">
+              <h3>Instagram</h3>
+              <p>Follow Updates</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-card facebook">
+            <div class="social-icon-box"><i class="fab fa-facebook-f"></i></div>
+            <div class="social-info">
+              <h3>Facebook</h3>
+              <p>Join Community</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-card linkedin">
+            <div class="social-icon-box"><i class="fab fa-linkedin-in"></i></div>
+            <div class="social-info">
+              <h3>LinkedIn</h3>
+              <p>Connect Professionally</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="social-card behance">
+            <div class="social-icon-box"><i class="fab fa-behance"></i></div>
+            <div class="social-info">
+              <h3>Behance</h3>
+              <p>Explore Designs</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="social-card dribbble">
+            <div class="social-icon-box"><i class="fab fa-dribbble"></i></div>
+            <div class="social-info">
+              <h3>Dribbble</h3>
+              <p>Check Shots</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-card whatsapp-social">
+            <div class="social-icon-box"><i class="fab fa-whatsapp"></i></div>
+            <div class="social-info">
+              <h3>WhatsApp</h3>
+              <p>Direct Chat</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://tiktok.com/@aminbolani" target="_blank" rel="noopener noreferrer" class="social-card tiktok">
+            <div class="social-icon-box"><i class="fab fa-tiktok"></i></div>
+            <div class="social-info">
+              <h3>TikTok</h3>
+              <p>Short Videos</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <!-- Duplicated Cards For Seamless Infinite Loop -->
+          <a href="https://youtube.com/@aminbolanioffical" target="_blank" rel="noopener noreferrer" class="social-card youtube" aria-hidden="true">
+            <div class="social-icon-box"><i class="fab fa-youtube"></i></div>
+            <div class="social-info">
+              <h3>YouTube</h3>
+              <p>Subscribe Channel</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://instagram.com/aminbolani_" target="_blank" rel="noopener noreferrer" class="social-card instagram" aria-hidden="true">
+            <div class="social-icon-box"><i class="fab fa-instagram"></i></div>
+            <div class="social-info">
+              <h3>Instagram</h3>
+              <p>Follow Updates</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-card facebook" aria-hidden="true">
+            <div class="social-icon-box"><i class="fab fa-facebook-f"></i></div>
+            <div class="social-info">
+              <h3>Facebook</h3>
+              <p>Join Community</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-card linkedin" aria-hidden="true">
+            <div class="social-icon-box"><i class="fab fa-linkedin-in"></i></div>
+            <div class="social-info">
+              <h3>LinkedIn</h3>
+              <p>Connect Professionally</p>
+            </div>
+            <span class="social-arrow"><i class="fas fa-arrow-right"></i></span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 06 - VISUAL GALLERY CAROUSEL -->
+<section class="gallery-section" id="gallery">
+  <div class="container-fluid">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2 class="section-title">Visual Work Showcase</h2>
+      <p class="section-subtitle">A glimpse of creative layouts, branding assets, and digital design work</p>
+    </div>
+
+    <!-- Dynamic Infinite Auto-Scroll Gallery Wrapper -->
+    <div class="gallery-carousel-wrapper">
+      <div class="gallery-track" id="dynamicGalleryTrack">
+        <!-- Static placeholders browser load par JavaScript automatic replace kar dega -->
+        <p style="color: #664328; text-align: center; width: 100%;">Loading Gallery Showcase...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- ================================
+       SECTION 07 — CLIENT REVIEWS / TESTIMONIALS
+  ================================= -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Client Feedback & Reviews</h2>
+        <p class="section-subtitle">What my valuable clients say about my work and services</p>
+      </div>
+
+      <!-- Reviews Track / Grid Container -->
+      <div class="reviews-grid">
+        
+        <!-- Review Card 01 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">"Amin ne hamaari e-commerce website ki Figma designing itni zabardast ki hai ke client conversion double ho gayi. Clean UI aur prompt response!"</p>
+          <div class="client-info">
+            <div class="client-avatar">
+              <img src="images/profile/client-1.jpg" alt="Hamza Shaikh" class="client-dp">
+            </div>
+            <div class="client-details">
+              <h4>Hamza Shaikh</h4>
+              <span>E-Commerce Store Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Card 02 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">"Business portfolio website banwayi thi salon ke liye. Speed, animation aur mobile responsiveness 10/10 hai. Highly recommended!"</p>
+          <div class="client-info">
+            <div class="client-avatar">
+              <img src="images/profile/client-2.jpg" alt="Usman Ali" class="client-dp">
+            </div>
+            <div class="client-details">
+              <h4>Usman Ali</h4>
+              <span>Salon Brand Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Card 03 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">"WhatsApp Store setup aur catalogue assets ka kaam karwaya tha. Direct WhatsApp ordering flow bohot fast kaam kar raha hai."</p>
+          <div class="client-info">
+            <div class="client-avatar">
+              <img src="images/profile/client-3.jpg" alt="Bilal Ahmed" class="client-dp">
+            </div>
+            <div class="client-details">
+              <h4>Bilal Ahmed</h4>
+              <span>Digital Retailer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Card 04 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">"Branding assets aur logo assets quality top notch thi. Creative sense aur pixel perfection best hai!"</p>
+          <div class="client-info">
+            <div class="client-avatar">
+              <img src="images/profile/client-4.jpg" alt="Farhan Khan" class="client-dp">
+            </div>
+            <div class="client-details">
+              <h4>Farhan Khan</h4>
+              <span>Agency Founder</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+ <!-- ================================
+       SECTION 08 — FOOTER & CONTACT
+  ================================= -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-bg-overlay"></div>
+    <div class="container">
+      
+      <div class="footer-top">
+        <!-- Column 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <a href="#" class="footer-logo">
+            <span class="logo-text">AMIN<span class="logo-accent">BOLANI</span></span>
+          </a>
+          <p class="footer-about">
+            Crafting high-converting digital experiences, modern e-commerce architectures, and visual branding solutions that elevate your online presence.
+          </p>
+          <div class="footer-socials">
+            <a href="https://youtube.com/@aminbolanioffical" target="_blank" rel="noopener noreferrer" class="footer-soc youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://tiktok.com/@aminbolani" target="_blank" rel="noopener noreferrer" class="footer-soc tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/aminbolani_" target="_blank" rel="noopener noreferrer" class="footer-soc instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="footer-soc pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#gallery">Visual Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Specialized Services (Brand Colored Links) -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-links brand-services-links">
+            <li><a href="#" class="service-brand figma-link"><i class="fab fa-figma"></i> UI/UX Figma Design</a></li>
+            <li><a href="#" class="service-brand ecom-link"><i class="fas fa-shopping-cart"></i> E-Commerce Web Dev</a></li>
+            <li><a href="#" class="service-brand whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp Store Flow</a></li>
+            <li><a href="#" class="service-brand gsap-link"><i class="fas fa-bolt"></i> Digital catalogue</a></li>
+            <li><a href="#" class="service-brand branding-link"><i class="fas fa-paint-brush"></i> Branding & Assets</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Direct Contact -->
+        <div class="footer-col contact-col">
+          <h3 class="footer-heading">Get In Touch</h3>
+          <p class="contact-desc">Have a project in mind? Let's build something extraordinary together.</p>
+          <a href="https://wa.me/923252704588" target="_blank" class="footer-whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Chat On WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>Amin Bolani</strong>. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+
+</body>
+</html>

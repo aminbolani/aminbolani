@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me — Amin Bolani</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main CSS Files -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Chocolate Theme Styles for About Page -->
+  <style>
+    :root {
+      --brown-dark: #1a0f0a;
+      --brown-medium: #2c1810;
+      --brown-card: #24140d;
+      --brown-gold: #d97706;
+      --brown-cream: #fef3c7;
+      --brown-light-bg: #fffbeb;
+      --text-muted: #d1bcad;
+    }
+
+    body {
+      background-color: var(--brown-light-bg);
+      color: #3b2314;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Link Active / Styling */
+    .about-nav {
+      background: var(--brown-dark);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--brown-medium);
+    }
+
+    .about-nav .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .about-nav .logo span {
+      color: var(--brown-gold);
+    }
+
+    .about-nav .back-btn {
+      color: var(--brown-cream);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .about-nav .back-btn:hover {
+      color: var(--brown-gold);
+    }
+
+    /* Top Hero Banner Section */
+    .about-banner-section {
+      width: 100%;
+      height: 320px;
+      position: relative;
+      background: linear-gradient(135deg, #1a0f0a 0%, #2c1810 60%, #432315 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 4px solid var(--brown-gold);
+    }
+
+    .about-banner-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .banner-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .banner-overlay h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .banner-overlay h1 span {
+      color: var(--brown-gold);
+    }
+
+    .banner-overlay p {
+      color: var(--brown-cream);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    /* About Main Content Section */
+    .about-main-section {
+      padding: 70px 5%;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    /* Square Image Wrapper */
+    .about-img-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(26, 15, 10, 0.2);
+      border: 4px solid var(--brown-gold);
+    }
+
+    .about-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-img-box:hover img {
+      transform: scale(1.04);
+    }
+
+    /* About Text Content */
+    .about-text-content h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--brown-dark);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .about-text-content h2 span {
+      color: var(--brown-gold);
+    }
+
+    .about-bio-text {
+      font-size: 1.05rem;
+      color: #4a2e1b;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .about-bio-text p {
+      margin-bottom: 18px;
+    }
+
+    /* Main Skills Tag Box */
+    .skills-wrapper {
+      margin-top: 30px;
+    }
+
+    .skills-wrapper h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 12px;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-chip {
+      background: var(--brown-dark);
+      color: var(--brown-cream);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid var(--brown-gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-chip i {
+      color: var(--brown-gold);
+    }
+
+    /* Social Media Ticker / Scroll Section */
+    .social-scroll-section {
+      background: var(--brown-dark);
+      padding: 50px 0;
+      overflow: hidden;
+      border-top: 2px solid var(--brown-medium);
+      border-bottom: 2px solid var(--brown-medium);
+    }
+
+    .section-title-center {
+      text-align: center;
+      color: #ffffff;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 35px;
+    }
+
+    .section-title-center span {
+      color: var(--brown-gold);
+    }
+
+    .social-cards-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 5%;
+    }
+
+    .social-card {
+      background: var(--brown-card);
+      border: 1px solid var(--brown-medium);
+      padding: 20px 30px;
+      border-radius: 16px;
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.3s ease;
+      min-width: 200px;
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--brown-gold);
+      box-shadow: 0 10px 25px rgba(217, 119, 6, 0.2);
+    }
+
+    .social-card i {
+      font-size: 1.8rem;
+      color: var(--brown-gold);
+    }
+
+    .social-card div h5 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .social-card div span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Direct Contact Section */
+    .contact-info-section {
+      padding: 70px 5%;
+      background: var(--brown-light-bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px;
+      border: 2px solid #f3e8d8;
+      box-shadow: 0 10px 30px rgba(44, 24, 16, 0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--brown-dark);
+      color: var(--brown-gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details h4 {
+      margin: 0 0 6px 0;
+      font-size: 1.1rem;
+      color: var(--brown-dark);
+    }
+
+    .contact-details p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #5a3d28;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--brown-dark);
+      padding: 25px 0;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--brown-medium);
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+      .about-banner-section {
+        height: 240px;
+      }
+      .banner-overlay h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="about-nav">
+    <a href="index.html" class="logo">AMIN <span>BOLANI</span></a>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </nav>
+
+  <!-- Top Banner Section -->
+  <section class="about-banner-section">
+    <!-- Banner Image (Replace 'images/about-banner.jpg' with your generated image) -->
+    <img src="images/about-banner.jpg" alt="About Banner" class="about-banner-img" onerror="this.style.display='none'">
+    <div class="banner-overlay">
+      <h1>About <span>My Work</span></h1>
+      <p>Simple story, honest work, and custom web designs.</p>
+    </div>
+  </section>
+
+  <!-- Main About Content -->
+  <section class="about-main-section">
+    <div class="container">
+      <div class="about-grid">
+        
+        <!-- Square Image Section -->
+        <div class="about-img-box">
+          <!-- Profile Square Image (Replace 'images/about-profile.jpg' with your photo) -->
+          <img src="images/about-profile.jpg" alt="Amin Bolani Profile" onerror="this.src='https://via.placeholder.com/600x600/1a0f0a/d97706?text=Amin+Bolani'">
+        </div>
+
+        <!-- Text Description Section (Natural Human Tone) -->
+        <div class="about-text-content">
+          <h2>Hi, I'm <span>Amin</span> 👋</h2>
+          
+          <div class="about-bio-text">
+  <p>I have been working in web design and custom layout development for a long time. Throughout this journey, I have built websites for various businesses, but I particularly specialize in designing pages for service-based businesses — such as <strong>salons, barbershops, and local service providers</strong>.</p>
+  
+  <p>I am genuinely passionate about my work, and every new project brings a valuable learning opportunity. My primary focus is always to deliver websites that are clean, fast-loading, and effortlessly communicate the core services to visitors.</p>
+
+  <p>My greatest strength lies in breaking down complex client requirements into <strong>simple, efficient, and user-friendly solutions</strong>. Completing projects neatly without unnecessary complexity is my standard practice.</p>
+</div>
+
+          <!-- Main Skills Badges -->
+          <div class="skills-wrapper">
+            <h4>Main Core Skills:</h4>
+            <div class="skills-tags">
+              <div class="skill-chip"><i class="fas fa-palette"></i> Graphic Designing</div>
+              <div class="skill-chip"><i class="fas fa-laptop-code"></i> Website Designing</div>
+              <div class="skill-chip"><i class="fas fa-code"></i> Web Development</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Connections Section -->
+  <section class="social-scroll-section">
+    <h3 class="section-title-center">Connect <span>With Me</span></h3>
+    <div class="social-cards-grid">
+      
+      <a href="https://instagram.com" target="_blank" class="social-card">
+        <i class="fab fa-instagram"></i>
+        <div>
+          <h5>Instagram</h5>
+          <span>@aminbolani</span>
+        </div>
+      </a>
+
+      <a href="https://facebook.com" target="_blank" class="social-card">
+        <i class="fab fa-facebook-f"></i>
+        <div>
+          <h5>Facebook</h5>
+          <span>Amin Bolani</span>
+        </div>
+      </a>
+
+      <a href="https://youtube.com" target="_blank" class="social-card">
+        <i class="fab fa-youtube"></i>
+        <div>
+          <h5>YouTube</h5>
+          <span>Amin Bolani Studio</span>
+        </div>
+      </a>
+
+      <a href="https://github.com" target="_blank" class="social-card">
+        <i class="fab fa-github"></i>
+        <div>
+          <h5>GitHub</h5>
+          <span>@aminbolani</span>
+        </div>
+      </a>
+
+      <a href="https://linkedin.com" target="_blank" class="social-card">
+        <i class="fab fa-linkedin-in"></i>
+        <div>
+          <h5>LinkedIn</h5>
+          <span>Amin Bolani</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Direct Contact Information Section -->
+  <section class="contact-info-section">
+    <div class="container">
+      <h3 class="section-title-center" style="color: var(--brown-dark);">Direct <span>Contact Info</span></h3>
+      
+      <div class="contact-grid">
+        
+        <div class="contact-box">
+          <div class="contact-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="contact-details">
+            <h4>WhatsApp Direct</h4>
+            <p>+92 300 0000000</p>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Email Address</h4>
+            <p>contact@aminbolani.com</p>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-icon">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Location</h4>
+            <p>Karachi, Pakistan</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p style="margin: 0;">&copy; 2026 <strong>Amin Bolani</strong>. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
