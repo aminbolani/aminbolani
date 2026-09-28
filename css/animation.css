@@ -1,0 +1,26 @@
+/* =================================
+   NAVBAR ANIMATIONS & TRANSITIONS
+================================= */
+
+/* Glass Glow Transition on Scroll */
+.header.scrolled .navbar {
+  box-shadow: 0 12px 35px 0 rgba(35, 24, 18, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Pulse animation for WhatsApp Icon */
+.whatsapp-btn i {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

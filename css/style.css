@@ -1,0 +1,1122 @@
+/* =================================
+   GLOBAL COLOR VARIABLES & RESETS
+================================= */
+:root {
+  --color-dark-1: #231812;
+  --color-dark-2: #483428;
+  --color-medium: #a27352;
+  --color-light-glass: rgba(210, 187, 160, 0.9);
+  --color-light-solid: #d2bba0;
+  --color-cream: #e8ddd3;
+  --color-whatsapp: #25d366;
+  --color-white: #ffffff;
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* Global Reset (Removes Default Bullets and Underlines) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  list-style: none !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-cream);
+  color: var(--color-dark-1);
+  overflow-x: hidden;
+}
+
+/* =================================
+   SECTION 01 — FULL WIDTH NAVBAR
+================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0;
+  background: var(--color-light-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(35, 24, 18, 0.08);
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 5%;
+  position: relative;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-dark {
+  color: var(--color-dark-1);
+}
+
+.logo-light {
+  color: var(--color-medium);
+  margin-left: 3px;
+  font-weight: 500;
+}
+
+/* Desktop Menu Links */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--color-dark-1);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-medium);
+}
+
+/* Header Actions & WhatsApp Button */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-dark-1);
+  color: var(--color-cream);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn i {
+  color: var(--color-whatsapp);
+  font-size: 1.1rem;
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--color-dark-2);
+  transform: translateY(-2px);
+}
+
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-dark-1);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.mobile-dropdown {
+  display: none;
+}
+/*--section 2 ha ---*/
+/* =================================
+   SECTION 02 — HERO BANNER SLIDER
+================================= */
+.hero-section {
+  position: relative;
+  width: 100%;
+  margin-top: 80px; /* Header spacing */
+  overflow: hidden;
+  background-color: var(--color-dark-1);
+}
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 41.66%; /* Aspect ratio 1920x800 (800/1920 = 41.66%) */
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* Center-focused background fit */
+  display: block;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(35, 24, 18, 0.1) 0%, rgba(35, 24, 18, 0.4) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+
+.slide-content {
+  text-align: center;
+  z-index: 10;
+}
+
+/* Glassmorphic Small Action Button */
+.slide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(210, 187, 160, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--color-cream);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slide-btn i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.slide-btn:hover {
+  background: var(--color-medium);
+  color: var(--color-white);
+  border-color: var(--color-medium);
+  transform: translateY(-2px);
+}
+
+.slide-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Slider Dots Indicator */
+.slider-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 20;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--color-cream);
+  width: 20px;
+  border-radius: 10px;
+}
+
+
+/*--section 3 start --*/
+
+/* =================================
+   SECTION 03 — ALL SERVICES
+================================= */
+.services-section {
+  padding: 70px 5%;
+  background-color: var(--color-cream);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-dark-1);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-medium);
+  font-weight: 400;
+}
+
+/* Services Grid (Desktop 4 Columns Horizontal) */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* Service Card Styling */
+.service-card {
+  background: var(--color-light-glass);
+  border: 1px solid rgba(35, 24, 18, 0.08);
+  border-radius: 16px;
+  padding: 14px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35 ease;
+  box-shadow: 0 6px 20px rgba(35, 24, 18, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  background: var(--color-white);
+  box-shadow: 0 12px 30px rgba(35, 24, 18, 0.12);
+  border-color: var(--color-medium);
+}
+
+/* Square Image Container (1:1 Ratio) */
+.card-img-box {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Pure Square aspect ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-dark-1);
+  margin-bottom: 12px;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.06);
+}
+
+/* Card Title & Content */
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 2px;
+}
+
+.service-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark-1);
+  line-height: 1.35;
+}
+
+.card-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-dark-1);
+  color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .card-arrow {
+  background: var(--color-medium);
+  color: var(--color-white);
+  transform: translateX(3px);
+}
+
+/* =================================
+   SECTION 04 — SERVICES PORTFOLIO (DESKTOP 4-COLUMNS)
+================================= */
+.portfolio-section {
+  padding: 80px 5%;
+  background-color: var(--color-cream);
+  color: var(--color-cream);
+}
+
+.portfolio-section .section-title {
+  color: var(--color-dark-1);
+}
+
+.portfolio-section .section-subtitle {
+  color: var(--color-dark-1);
+}
+
+/* Portfolio Desktop Track (4 Columns Single Row) */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* Portfolio Card Styling */
+.portfolio-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-dark-2);
+  border: 1px solid rgba(210, 187, 160, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.portfolio-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Overlay & Glass Effect */
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 24, 18, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.08);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-tag {
+  background-color: rgba(162, 115, 82, 0.3);
+  color: var(--color-light-solid);
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--color-medium);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-medium);
+  color: var(--color-white);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.portfolio-btn:hover {
+  background-color: var(--color-light-solid);
+  color: var(--color-dark-1);
+  transform: translateY(-2px);
+}
+
+/* =================================
+   SECTION 05 — SOCIAL MEDIA ACCOUNTS
+================================= */
+.social-section {
+  padding: 70px 0;
+  background-color: var(--color-cream);
+  overflow: hidden;
+}
+
+.social-section .container {
+  max-width: 100%;
+}
+
+/* Continuous Carousel Outer Container */
+.social-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Auto Infinite Sliding Track */
+.social-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: infiniteScroll 25s linear infinite;
+}
+
+/* Hover karne par scroll pause ho jaye ga */
+.social-carousel-wrapper:hover .social-track {
+  animation-play-state: paused;
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 8 - 20px * 8)); /* 8 Cards ka exact width offset */
+  }
+}
+
+/* Base Card Styling */
+.social-card {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 18px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  background: var(--color-white);
+  border: 1px solid rgba(35, 24, 18, 0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(35, 24, 18, 0.05);
+}
+
+.social-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.social-info h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-dark-1);
+  margin-bottom: 2px;
+}
+
+.social-info p {
+  font-size: 0.8rem;
+  color: var(--color-medium);
+}
+
+.social-arrow {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--color-dark-1);
+  transition: transform 0.3s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+}
+
+.social-card:hover .social-arrow {
+  transform: translateX(4px);
+}
+
+/* =================================
+   BRAND SPECIFIC COLORS & NEON GLOWS
+================================= */
+
+/* 1. YOUTUBE */
+.social-card.youtube .social-icon-box {
+  background: #FF0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+.social-card.youtube:hover {
+  border-color: #FF0000;
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.25);
+}
+
+/* 2. INSTAGRAM */
+.social-card.instagram .social-icon-box {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 0 15px rgba(220, 39, 67, 0.6);
+}
+.social-card.instagram:hover {
+  border-color: #dc2743;
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.25);
+}
+
+/* 3. FACEBOOK */
+.social-card.facebook .social-icon-box {
+  background: #1877F2;
+  box-shadow: 0 0 15px rgba(24, 119, 242, 0.6);
+}
+.social-card.facebook:hover {
+  border-color: #1877F2;
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.25);
+}
+
+/* 4. LINKEDIN */
+.social-card.linkedin .social-icon-box {
+  background: #0A66C2;
+  box-shadow: 0 0 15px rgba(10, 102, 194, 0.6);
+}
+.social-card.linkedin:hover {
+  border-color: #0A66C2;
+  box-shadow: 0 8px 25px rgba(10, 102, 194, 0.25);
+}
+
+/* 5. BEHANCE */
+.social-card.behance .social-icon-box {
+  background: #1769FF;
+  box-shadow: 0 0 15px rgba(23, 105, 255, 0.6);
+}
+.social-card.behance:hover {
+  border-color: #1769FF;
+  box-shadow: 0 8px 25px rgba(23, 105, 255, 0.25);
+}
+
+/* 6. DRIBBBLE */
+.social-card.dribbble .social-icon-box {
+  background: #EA4C89;
+  box-shadow: 0 0 15px rgba(234, 76, 137, 0.6);
+}
+.social-card.dribbble:hover {
+  border-color: #EA4C89;
+  box-shadow: 0 8px 25px rgba(234, 76, 137, 0.25);
+}
+
+/* 7. WHATSAPP */
+.social-card.whatsapp-social .social-icon-box {
+  background: #25D366;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+}
+.social-card.whatsapp-social:hover {
+  border-color: #25D366;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+}
+
+/* 8. TIKTOK */
+.social-card.tiktok .social-icon-box {
+  background: #000000;
+  box-shadow: 0 0 15px rgba(0, 242, 234, 0.5);
+}
+.social-card.tiktok:hover {
+  border-color: #00f2ea;
+  box-shadow: 0 8px 25px rgba(255, 0, 80, 0.25);
+}
+
+
+/* =================================
+   SECTION 06 — GALLERY CAROUSEL
+================================= */
+.gallery-section {
+  padding: 80px 0;
+  background-color: var(--color-cream);
+  overflow: hidden;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.gallery-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 30px 0;
+}
+
+/* Infinite Sliding Track */
+.gallery-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: galleryInfiniteScroll 50s linear infinite;
+}
+
+.gallery-carousel-wrapper:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+@keyframes galleryInfiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* 20 items width + gap offset shift */
+    transform: translateX(calc((-23vw - 20px) * 20));
+  }
+}
+
+/* Image Card Styling (Desktop: 4 Cards Visible ~ 23vw width) */
+.gallery-item {
+  width: 23vw;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-dark-1);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* Multi-Color Ambient Glow Shadow Effects */
+.gallery-item.item-1, .gallery-item.item-6, .gallery-item.item-11, .gallery-item.item-16 {
+  box-shadow: 0 10px 25px rgba(212, 160, 23, 0.25);
+}
+.gallery-item.item-1:hover, .gallery-item.item-6:hover, .gallery-item.item-11:hover, .gallery-item.item-16:hover {
+  box-shadow: 0 15px 35px rgba(212, 160, 23, 0.5);
+}
+
+.gallery-item.item-2, .gallery-item.item-7, .gallery-item.item-12, .gallery-item.item-17 {
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+}
+.gallery-item.item-2:hover, .gallery-item.item-7:hover, .gallery-item.item-12:hover, .gallery-item.item-17:hover {
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+.gallery-item.item-3, .gallery-item.item-8, .gallery-item.item-13, .gallery-item.item-18 {
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.25);
+}
+.gallery-item.item-3:hover, .gallery-item.item-8:hover, .gallery-item.item-13:hover, .gallery-item.item-18:hover {
+  box-shadow: 0 15px 35px rgba(24, 119, 242, 0.5);
+}
+
+.gallery-item.item-4, .gallery-item.item-9, .gallery-item.item-14, .gallery-item.item-19 {
+  box-shadow: 0 10px 25px rgba(220, 39, 67, 0.25);
+}
+.gallery-item.item-4:hover, .gallery-item.item-9:hover, .gallery-item.item-14:hover, .gallery-item.item-19:hover {
+  box-shadow: 0 15px 35px rgba(220, 39, 67, 0.5);
+}
+
+.gallery-item.item-5, .gallery-item.item-10, .gallery-item.item-15, .gallery-item.item-20 {
+  box-shadow: 0 10px 25px rgba(162, 115, 82, 0.3);
+}
+.gallery-item.item-5:hover, .gallery-item.item-10:hover, .gallery-item.item-15:hover, .gallery-item.item-20:hover {
+  box-shadow: 0 15px 35px rgba(162, 115, 82, 0.6);
+}
+
+/* =================================
+   SECTION 07 — CLIENT REVIEWS
+================================= */
+.reviews-section {
+  padding: 80px 5%;
+  background-color: var(--color-dark-1);
+  color: var(--color-cream);
+}
+
+.reviews-section .section-title {
+  color: var(--color-cream);
+}
+
+.reviews-section .section-subtitle {
+  color: var(--color-light-solid);
+}
+
+/* Reviews Desktop Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* Glassmorphism Card Style */
+.review-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(210, 187, 160, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-medium);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 15px 35px rgba(162, 115, 82, 0.2);
+}
+
+/* Golden Rating Stars */
+.review-stars {
+  color: #FFD700;
+  font-size: 0.85rem;
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-cream);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+/* Client Detail Layout */
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(210, 187, 160, 0.1);
+  padding-top: 14px;
+}
+
+/* Client Avatar Image Container */
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-medium);
+  flex-shrink: 0;
+  background-color: var(--color-dark-2);
+}
+
+/* Client DP Image Fit */
+.client-dp {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.client-details h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 2px;
+}
+
+.client-details span {
+  font-size: 0.75rem;
+  color: var(--color-light-solid);
+}
+
+/* =================================
+   SECTION 08 — LIGHT THEME FOOTER
+================================= */
+.site-footer {
+  position: relative;
+  background-color: var(--color-cream);
+  background-image: url('../images/footer-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-dark-1);
+  padding: 80px 0 30px 0;
+  border-top: 1px solid var(--color-light-solid);
+  overflow: hidden;
+}
+
+.footer-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 242, 235, 0.94);
+  z-index: 1;
+}
+
+.site-footer .container {
+  position: relative;
+  z-index: 2;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(162, 115, 82, 0.2);
+}
+
+/* Logo Styling */
+.footer-logo {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-dark-1);
+  margin-bottom: 18px;
+}
+
+.logo-accent {
+  color: var(--color-medium);
+  margin-left: 4px;
+}
+
+.footer-about {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-dark-2);
+  margin-bottom: 22px;
+}
+
+/* Social Media Icons (YouTube, TikTok, Instagram, Pinterest) */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-soc {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-soc.youtube { color: #FF0000; box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15); }
+.footer-soc.youtube:hover { background: #FF0000; color: #fff; transform: translateY(-3px); }
+
+.footer-soc.tiktok { color: #000000; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+.footer-soc.tiktok:hover { background: #000000; color: #00f2ea; transform: translateY(-3px); }
+
+.footer-soc.instagram { color: #E4405F; box-shadow: 0 4px 12px rgba(228, 64, 95, 0.15); }
+.footer-soc.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; transform: translateY(-3px); }
+
+.footer-soc.pinterest { color: #BD081C; box-shadow: 0 4px 12px rgba(189, 8, 28, 0.15); }
+.footer-soc.pinterest:hover { background: #BD081C; color: #fff; transform: translateY(-3px); }
+
+/* Headings & Links */
+.footer-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark-1);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--color-dark-2);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links a:hover {
+  color: var(--color-medium);
+  transform: translateX(4px);
+}
+
+/* Custom Services Brand Colored Links */
+.service-brand {
+  font-weight: 600;
+}
+
+.figma-link { color: #350562 !important; }
+.ecom-link { color: #008060 !important; }
+.whatsapp-link { color: #00a93e !important; }
+.gsap-link { color: #8d0808 !important; }
+.branding-link { color: #350562 !important; }
+
+.service-brand:hover {
+  filter: brightness(1.2);
+  transform: translateX(5px) !important;
+}
+
+/* Contact Button */
+.contact-desc {
+  font-size: 0.88rem;
+  color: var(--color-dark-2);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.footer-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #25D366;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.footer-whatsapp-btn:hover {
+  background-color: #1eb854;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Footer Bottom Copyright Dark Brown Strip */
+.footer-bottom {
+  background-color: var(--color-dark-1); /* Dark brown background */
+  color: var(--color-cream); /* Light text color */
+  padding: 18px 25px;
+  border-radius: 12px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--color-cream);
+}
+
+.footer-bottom strong {
+  color: var(--color-white);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-bottom-links a {
+  color: var(--color-cream);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--color-medium);
+}
+
+
+
+/* WhatsApp Button / Footer Top ke neeche Dark Brown Pati */
+.footer-top::after {
+  content: '';
+  display: block;
+  grid-column: 1 / -1;
+  height: 6px;
+  background-color: var(--color-dark-1);
+  border-radius: 4px;
+  margin-top: 20px;
+}
