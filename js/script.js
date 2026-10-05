@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // SECTION 06 - DYNAMIC GALLERY CAROUSEL
 // =================================
 document.addEventListener('DOMContentLoaded', () => {
-  const API_PORTFOLIO_URL = "https://https://amin-backend.vercel.app/api/portfolio";
+  const API_PORTFOLIO_URL = "https://amin-backend.vercel.app/api/portfolio";
 
   async function loadHomeGallery() {
     const galleryTrack = document.getElementById("dynamicGalleryTrack");
